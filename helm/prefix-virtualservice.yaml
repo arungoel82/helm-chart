@@ -1,0 +1,31 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: nginx-prefix-virtualservice
+  namespace: default
+spec:
+  gateways:
+  - nginx-prefix-gateway
+  hosts:
+  - '*'
+  http:
+    - match:
+      - uri:
+          prefix: "/nginx01"
+      rewrite:
+        uri: "/"
+      route:
+      - destination:
+          host: svc-nginx01.default.svc.cluster.local
+          port:
+            number: 8080
+    - match:
+      - uri:
+          prefix: "/nginx02"
+      rewrite:
+        uri: "/"
+      route:
+      - destination:
+          host: svc-nginx02.default.svc.cluster.local
+          port:
+            number: 8000
