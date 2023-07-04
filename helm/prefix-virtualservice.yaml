@@ -16,7 +16,7 @@ spec:
         uri: "/"
       route:
       - destination:
-          host: svc-nginx01.default.svc.cluster.local
+          host: svc-nginx.default.svc.cluster.local
           port:
             number: 8080
     - match:
