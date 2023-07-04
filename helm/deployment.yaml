@@ -75,5 +75,5 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: nginx
+    app: nginx02
   type: ClusterIP
