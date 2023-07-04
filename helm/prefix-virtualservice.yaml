@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: nginx-prefix-virtualservice02
-  namespace: default
+  namespace: kong
 spec:
   gateways:
   - nginx-prefix-gateway
