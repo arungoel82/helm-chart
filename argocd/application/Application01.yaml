@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  destination:
+    namespace: guestbook
+    server: https://kubernetes.default.svc
+  source:
+    path: helm
+    repoURL: https://github.com/arungoel82/helm-chart.git
+    targetRevision: HEAD
