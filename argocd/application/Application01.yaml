@@ -11,4 +11,4 @@ spec:
   source:
     path: helm
     repoURL: https://github.com/arungoel82/helm-chart.git
-    targetRevision: HEAD
+    targetRevision: KTK-231
