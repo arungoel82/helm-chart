@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-helm
+  name: nginx-helm-01
   namespace: chart
   labels:
-    app: nginx
+    app: nginx-helm-01
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: nginx-helm-01
   template:
     metadata:
       labels:
-        app: nginx
+        app: nginx-helm-01
     spec:
       containers:
       - name: nginx
@@ -25,8 +25,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: svc-nginx-helm
-  name: svc-nginx-helm
+    name: svc-nginx-helm-01
+  name: svc-nginx-helm-01
   namespace: chart
 spec:
   ports:
@@ -35,25 +35,25 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: nginx
+    app: nginx-helm-01
   type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment02-helm
+  name: nginx-helm-02
   namespace: chart
   labels:
-    app: nginx02
+    app: nginx-helm-02
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx02
+      app: nginx-helm-02
   template:
     metadata:
       labels:
-        app: nginx02
+        app: nginx-helm-02
     spec:
       containers:
       - name: nginx
@@ -75,5 +75,5 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: nginx02
+    app: nginx-helm-02
   type: ClusterIP
