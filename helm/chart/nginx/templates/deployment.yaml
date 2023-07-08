@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
-  namespace: kong
+  name: nginx-helm
+  namespace: chart
   labels:
     app: nginx
 spec:
@@ -25,9 +25,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: svc-nginx
-  name: svc-nginx
-  namespace: kong
+    name: svc-nginx-helm
+  name: svc-nginx-helm
+  namespace: chart
 spec:
   ports:
   - name: http
@@ -41,8 +41,8 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment02
-  namespace: kong
+  name: nginx-deployment02-helm
+  namespace: chart
   labels:
     app: nginx02
 spec:
@@ -65,8 +65,8 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: svc-nginx02
-  name: svc-nginx02
+    name: svc-nginx02-helm
+  name: svc-nginx02-helm
   namespace: kong
 spec:
   ports:
