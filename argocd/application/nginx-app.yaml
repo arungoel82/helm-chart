@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: chart
+  namespace: argocd
+spec:
+  destination:
+    namespace: chart
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: helm
+    repoURL: https://github.com/arungoel82/helm-chart.git
+    targetRevision: KTK-231
+    directory:
+            recurse: true
