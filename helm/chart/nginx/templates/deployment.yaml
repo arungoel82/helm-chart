@@ -1,4 +1,4 @@
-{{- if .values.deployment.enabled }}
+#{{- if .values.deployment.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,7 +21,7 @@ spec:
         image: nginx
         ports:
         - containerPort: 80
-{{- end }}
+#{{- end }}
 ---
 apiVersion: v1
 kind: Service
