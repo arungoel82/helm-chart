@@ -67,7 +67,7 @@ metadata:
   labels:
     name: svc-nginx02-helm
   name: svc-nginx02-helm
-  namespace: kong
+  namespace: chart
 spec:
   ports:
   - name: http
