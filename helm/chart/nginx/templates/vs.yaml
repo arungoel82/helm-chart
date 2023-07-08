@@ -1,0 +1,31 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: nginx-prefix-vs-helm
+  namespace: chart
+spec:
+  gateways:
+  - nginx-prefix-gateway-helm
+  hosts:
+  - '*'
+  http:
+    - match:
+      - uri:
+          prefix: "/nginx01"
+      rewrite:
+        uri: "/"
+      route:
+      - destination:
+          host: svc-nginx-helm-01.kong.svc.cluster.local
+          port:
+            number: 8808
+    - match:
+      - uri:
+          prefix: "/nginx02"
+      rewrite:
+        uri: "/"
+      route:
+      - destination:
+          host: svc-nginx-helm-02.kong.svc.cluster.local
+          port:
+            number: 8800
