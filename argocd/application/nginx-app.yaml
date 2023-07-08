@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: helm/chart
+    path: helm
     repoURL: https://github.com/arungoel82/helm-chart.git
     targetRevision: KTK-231
     directory:
