@@ -16,7 +16,7 @@ spec:
         uri: "/"
       route:
       - destination:
-          host: svc-nginx-helm-01.kong.svc.cluster.local
+          host: svc-nginx-helm-01.chart.svc.cluster.local
           port:
             number: 8808
     - match:
@@ -26,6 +26,6 @@ spec:
         uri: "/"
       route:
       - destination:
-          host: svc-nginx-helm-02.kong.svc.cluster.local
+          host: svc-nginx-helm-02.chart.svc.cluster.local
           port:
             number: 8800
