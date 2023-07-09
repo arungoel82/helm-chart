@@ -1,0 +1,9 @@
+nameOverride ""
+fullnameOverride "kong-custom"
+deployment:
+        enabled: true
+        replicaSet: 2
+image:
+        name: nginx
+        port: 80
+        protocol: TCP

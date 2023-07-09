@@ -1,0 +1,34 @@
+{{- if .values.deployment.enabled }}
+apiVersion: v1
+kind: Deployment
+metadata:
+        name: {{ include "nginx.fullname" . }}-deployment
+        labels:
+                {{- include "nginx.labels" . | nindent 4 }}
+spec:
+        {{- if .values.replicaSet.enabled }}
+        replicas: {{ .values.deployment.replicaSet }}
+        {{- end }}
+        selector:
+                matchLabels:
+                        {{- include "nginx.selectorLabels" . | nindent 6 }}
+        templates:
+                metadata:
+                        {{- with .Values.podAnnotations }}
+                        annotations:
+                                {{- toYaml . | nindent 8 }}
+                         {{- end }}
+                        labels:
+                                {{- include "nginx.selectorLabels" . | nindent 8 }}
+                spec:
+                        containers:
+                          - name: {{ include "nginx.fullname" . }}-pod
+                            image: {{ .values.image.name }}
+                            ports:
+                                  - name: http
+                                    containerPort: {{ .values.image.port }}
+                                    protocol: {{ .values.image.protocol }}
+{{- end }}
+                                    
+
+
