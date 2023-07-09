@@ -11,8 +11,8 @@ image:
   tag: ""
 
 imagePullSecrets: []
-nameOverride: "kong-akscluster"
-fullnameOverride: ""
+nameOverride: ""
+fullnameOverride: "kong-akscluster"
 
 serviceAccount:
   # Specifies whether a service account should be created
