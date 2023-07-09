@@ -1,6 +1,7 @@
 {{- if .values.deployment.enabled }}
 apiVersion: v1
 kind: Deployment
+{{- end }}
 metadata:
         name: {{ include "nginx.fullname" . }}-deployment
         labels:
@@ -28,7 +29,3 @@ spec:
                                   - name: http
                                     containerPort: {{ .values.image.port }}
                                     protocol: {{ .values.image.protocol }}
-{{- end }}
-                                    
-
-
