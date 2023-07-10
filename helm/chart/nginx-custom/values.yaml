@@ -1,5 +1,5 @@
-deployment:
-        enabled: true
+#deployment:
+#        enabled: true
 replicaSet:
         enabled: true
         replicaSet: 2
