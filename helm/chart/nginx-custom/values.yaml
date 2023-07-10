@@ -3,8 +3,8 @@ deployment:
 replicaSet:
         enabled: true
         replicaSet: 2
-nameOverride ""
-fullnameOverride "kong-custom"
+nameOverride: ""
+fullnameOverride: "kong-custom"
 image:
         name: nginx
         port: 80
