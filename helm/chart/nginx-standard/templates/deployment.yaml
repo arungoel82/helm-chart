@@ -1,0 +1,26 @@
+{{- if .Values.deployment.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-standard
+  labels:
+    app: nginx-standard
+  namespace: nginx-standard
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-standard
+  template:
+    metadata:
+      labels: 
+        app: nginx-standard
+    spec:
+      containers:
+      - name: nginx-standard-pod
+        image: nginx
+        ports:
+        - name: http
+          containerPort: 80
+          protocol: TCP
+{{- end }}
