@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-apache
+  labels:
+    name: svc-apache
+    env: dev
+  namespace: apache
+spec:
+  type: ClusterIP
+  selector:
+      app: apache
+  ports:
+    - name: port-apache
+      port: 8080
+      targetPort: 8080
+      protocol: TCP
