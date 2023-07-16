@@ -1,13 +1,17 @@
+{{- if .Values.deployment.enabled }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kong
+  name: {{ .Values.deployment.name }}-deploy-dev
   labels:
     name: dkong
     app: dkong
   namespace: apache
 spec:
-  replicas: 2
+  {{- if .Values.deployment.replicas.enabled }}
+  replicas: {{ .Values.deployment.replicas.replicas }}
+  else replicas: 1
+  {{- end }}
   selector:
     matchLabels:
       app: kong
@@ -21,5 +25,5 @@ spec:
       containers:
         - name: cpod
           image: nginx
-          
+{{- end }}          
     

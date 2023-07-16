@@ -1,0 +1,7 @@
+deployment:
+  enabled: true
+  name: kong-cluster
+  replicas:
+    enabled: true
+    replicas: 2
+
