@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: kong
   labels:
-    name: kong
-    app: kong
+    name: dkong
+    app: dkong
   namespace: apache
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: kong
-  templates:
+  template:
     metadata:
       name: pod
       labels:
-        name: kong
         app: kong
+      namespace: apache
     spec:
       containers:
         - name: cpod
