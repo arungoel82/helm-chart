@@ -11,7 +11,15 @@ spec:
   selector:
     matchLabels:
       app: kong
-  metadata:
-
   templates:
+    metadata:
+      name: pod
+      labels:
+        name: kong
+        app: kong
+    spec:
+      containers:
+        - name: cpod
+          image: nginx
+          
     
