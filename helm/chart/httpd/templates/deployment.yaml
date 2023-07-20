@@ -3,9 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.deployment.name }}-deploy-dev
-  labels:
-    name: dkong
-    app: dkong
+  labels: {{- include "httpd.labels" . | nindent 4 }}
   namespace: apache
 spec:
   {{- if .Values.deployment.replicas.enabled }}
@@ -13,8 +11,7 @@ spec:
   else replicas: 1
   {{- end }}
   selector:
-    matchLabels:
-      app: kong
+    matchLabels: {{- include "httpd.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       name: pod
